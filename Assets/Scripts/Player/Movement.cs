@@ -3,12 +3,17 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
+    [Header("Movement")]
     [SerializeField] InputAction thrust;
     [SerializeField] InputAction rotation;
     [SerializeField] float thrustStrength = 100f;
     [SerializeField] float rotationStrength = 100f;
+
     Rigidbody rb;
     private AudioSource audioSource;
+
+    [SerializeField] AudioClip engine;
+
 
     private void Awake()
     {
@@ -41,7 +46,7 @@ public class Movement : MonoBehaviour
             rb.AddRelativeForce(Vector3.up * thrustStrength * Time.deltaTime);
             if (!audioSource.isPlaying)
             {
-                audioSource.Play();
+                audioSource.PlayOneShot(engine);
             }
             
         }
