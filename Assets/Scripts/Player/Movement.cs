@@ -8,7 +8,7 @@ public class Movement : MonoBehaviour
     [SerializeField] float thrustStrength = 100f;
     [SerializeField] float rotationStrength = 100f;
     Rigidbody rb;
-    [SerializeField] AudioSource audioSource;
+    private AudioSource audioSource;
 
     private void Awake()
     {
@@ -22,7 +22,7 @@ public class Movement : MonoBehaviour
         rotation.Enable();
     }
 
-    private void OnDisable()
+    public void OnDisable()
     {
         thrust.Disable();
         rotation.Disable();
