@@ -11,6 +11,10 @@ public class CollisionHandler : MonoBehaviour
     AudioSource audioSource;
     [SerializeField] AudioClip success;
     [SerializeField] AudioClip crash;
+    [SerializeField] ParticleSystem successParticles;
+    [SerializeField] ParticleSystem crashParticles;
+
+    bool isControllable = true;
 
     private void Awake()
     {
@@ -20,6 +24,9 @@ public class CollisionHandler : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        //if player cannot controll then break the method and do not execute the rest in this method
+        if (!isControllable) { return; }
+
         switch (collision.gameObject.tag)
         {
             case "Friendly":
@@ -37,21 +44,27 @@ public class CollisionHandler : MonoBehaviour
         }
     }
 
-    private void StartSuccessSequence()
+    void StartSuccessSequence()
     {
+        isControllable = false;
+        audioSource.Stop();
         audioSource.PlayOneShot(success);
+        successParticles.Play();
         movement.OnDisable();
         Invoke("LoadNextLevel", levelLoadDelay);
     }
 
-    private void StartCrashSequence()
+    void StartCrashSequence()
     {
+        isControllable = false;
+        audioSource.Stop();
         audioSource.PlayOneShot(crash);
+        crashParticles.Play();
         movement.OnDisable();
         Invoke("ReloadLevel", levelLoadDelay);
     }
 
-    private void LoadNextLevel()
+    void LoadNextLevel()
     {
         int currentScene = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentScene + 1;
@@ -66,7 +79,7 @@ public class CollisionHandler : MonoBehaviour
     }
 
     //After crsah, reload again the same scene
-    private void ReloadLevel()
+    void ReloadLevel()
     {      
         int currentScene = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(currentScene);
