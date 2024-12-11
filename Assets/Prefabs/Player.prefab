@@ -213,7 +213,7 @@ MonoBehaviour:
   thrustStrength: 1000
   rotationStrength: 100
   mainEngineParticle: {fileID: 5085842994120966230}
-  leftEngineParticle: {fileID: 0}
+  leftEngineParticle: {fileID: 4873808967434351672}
   rightEngineParticle: {fileID: 8190944739856464345}
   engine: {fileID: 8300000, guid: 24cbfb72bdb31e948922c5ab088c0cb7, type: 3}
 --- !u!136 &4283403849265757847
@@ -389,6 +389,14 @@ PrefabInstance:
       value: -90
       objectReference: {fileID: 0}
     - target: {fileID: 8316931129981413944, guid: 79ed29a5f10924a46967cb91ca3068fe, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316931129981413944, guid: 79ed29a5f10924a46967cb91ca3068fe, type: 3}
+      propertyPath: lengthInSec
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8316931129981413944, guid: 79ed29a5f10924a46967cb91ca3068fe, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
       value: 3.91
       objectReference: {fileID: 0}
@@ -475,6 +483,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -90
       objectReference: {fileID: 0}
+    - target: {fileID: 8316931129981413944, guid: 18ac9a32b14aa4d46958e62b3503b7ff, type: 3}
+      propertyPath: looping
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -483,6 +495,11 @@ PrefabInstance:
 --- !u!4 &1743539936034323887 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2952918759052927919, guid: 18ac9a32b14aa4d46958e62b3503b7ff, type: 3}
+  m_PrefabInstance: {fileID: 3515221836795715072}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &4873808967434351672 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8316931129981413944, guid: 18ac9a32b14aa4d46958e62b3503b7ff, type: 3}
   m_PrefabInstance: {fileID: 3515221836795715072}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5851682272727019568
